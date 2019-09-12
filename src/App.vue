@@ -5,7 +5,7 @@
     <div class="upper-part-of-page">
       <div id="favourite-beers" class="scroll">
         <ul>
-          <li v-for="beer in favouriteBeers">{{beer.name}}<button id="remove">&#10006;</button></li>
+          <li v-for="(beer, index) in favouriteBeers" :key="index">{{beer.name}}<button v-on:click="handleRemove(beer)" id="remove">&#10006;</button></li>
           
         </ul>
       </div>
@@ -52,6 +52,12 @@ export default {
   components: {
     'beer-list': BeerList,
     'beer-detail': BeerDetail
+  },
+  methods: {
+    handleRemove (beer) {
+      const index = this.favouriteBeers.indexOf(beer)
+      this.favouriteBeers.splice(index, 1);
+    },
   }
 }
 
