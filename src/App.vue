@@ -39,8 +39,11 @@ export default {
     .then(beers => this.beers = beers)
 
     eventBus.$on('favourited-beer', (beer) => {
-      this.favouriteBeers.push(beer);         
+      if (this.favouriteBeers.includes(beer)===false) {
+        this.favouriteBeers.push(beer);
+      } 
     })
+
     eventBus.$on('beer', (beer) => {
       this.selectedBeer = beer;
     })
@@ -76,6 +79,7 @@ div.upper-part-of-page {
 }
 
 div.beer-details {
+  padding-left: 5px;
   border: 1px solid black;
   width: 48%;
   height: 200px;
