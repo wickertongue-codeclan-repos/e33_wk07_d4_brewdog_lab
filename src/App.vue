@@ -5,7 +5,8 @@
     <div class="upper-part-of-page">
       <div id="favourite-beers" class="scroll">
         <ul>
-          <li v-for="beer in favouriteBeers">{{beer.name}}</li>
+          <li v-for="beer in favouriteBeers">{{beer.name}}<button id="remove">&#10006;</button></li>
+          
         </ul>
       </div>
 
@@ -88,6 +89,21 @@ div.beer-details {
   overflow: auto;
   overflow: -moz-scrollbars-vertical; 
   overflow-y: scroll;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+}
+
+#remove {
+  background-color: white;
+  color: red;
+  border: 1px solid black;
+  width: 20px;
+  padding: 0;
+  margin-right: 5px;
+
 }
 
 </style>
